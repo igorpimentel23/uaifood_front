@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import colors from '../../styles/colors';
 
 import bgImage from '../../assets/bg.jpg';
@@ -9,9 +9,35 @@ export const Background = styled.div`
 
 export const Container = styled.div``;
 
-export const ImageContainer = styled.div``;
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity:1;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  animation: ${fadeIn} 1s;
+`;
 
 export const Image = styled.img``;
+
+const apperFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity:1;
+    transform:translateX(0);
+  }
+`;
+
+export const AnimationContainer = styled.div`
+  animation: ${apperFromLeft} 1s;
+`;
 
 export const SearchContainer = styled.div`
   max-width: 1200px;

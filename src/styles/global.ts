@@ -18,6 +18,10 @@ export default createGlobalStyle`
     color: ${colors.white};
   }
 
+  .color-fading-gray {
+    color : ${colors.fadingGray};
+  }
+
   .color-light-gray {
     color: ${colors.lightGray};
   }
@@ -39,23 +43,23 @@ export default createGlobalStyle`
   }
 
   .fs-xs {
-    font-size: 14pt;
+    font-size: 14px;
   }
 
   .fs-sm {
-    font-size: 18pt;
+    font-size: 18px;
   }
 
   .fs-md {
-    font-size: 20pt;
+    font-size: 20px;
   }
 
   .fs-lg {
-    font-size: 24pt;
+    font-size: 24px;
   }
 
   .fs-xl {
-    font-size: 60pt;
+    font-size: 60px;
   }
 
   .fw-light {

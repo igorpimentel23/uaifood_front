@@ -1,17 +1,14 @@
 import React from 'react';
-import { FaMapMarkerAlt } from 'react-icons/fa';
 
+import Search from '../../components/Search';
 import {
   Background,
   ImageContainer,
   SearchContainer,
   SearchText,
+  AnimationContainer,
   SearchTextContainer,
   InputContainer,
-  InputWrapper,
-  Input,
-  SeachButton,
-  SearchButtonText,
 } from './styles';
 
 import logo from '../../assets/logo-white.jpg';
@@ -23,26 +20,16 @@ const Landing: React.FC = () => {
         <img src={logo} alt="uaifood" />
       </ImageContainer>
       <SearchContainer className="px-2">
-        <SearchTextContainer className="mb-5">
-          <SearchText className="fw-extra-bold color-white fs-xl">
-            Descubra os melhores restaurantes em sua cidade
-          </SearchText>
-        </SearchTextContainer>
-        <InputContainer className="d-flex align-items-center">
-          <InputWrapper className="d-flex align-items-center flex-fill mr-3 h-100">
-            <FaMapMarkerAlt className="ml-3 mr-2 fs-lg color-light-gray" />
-            <Input
-              className="border-0 px-2 w-100 fs-lg color-light-gray"
-              placeholder="Digite a sua cidade"
-            />
-          </InputWrapper>
-          <SeachButton
-            /* onClick={() => {}} */
-            className="px-5 border-0 fs-lg fw-semi-bold color-white h-100"
-          >
-            <SearchButtonText className="px-5 mx-3">Buscar</SearchButtonText>
-          </SeachButton>
-        </InputContainer>
+        <AnimationContainer>
+          <SearchTextContainer className="mb-5">
+            <SearchText className="fw-extra-bold color-white fs-xl">
+              Descubra os melhores restaurantes em sua cidade
+            </SearchText>
+          </SearchTextContainer>
+          <InputContainer className="d-flex align-items-center justify-content-center">
+            <Search containerStyle={{ maxWidth: 1200 }} />
+          </InputContainer>
+        </AnimationContainer>
       </SearchContainer>
     </Background>
   );
