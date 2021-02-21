@@ -17,20 +17,7 @@ Para a instalação do projeto, é necessário que o Docker Compose esteja insta
 Depois de clonar e baixar o projeto, abra o terminal de comando na pasta do projeto, e execute:
 
 ```
-docker-compose up build -d
-```
-
-Após o término, para verificar se os containers foram construidos com sucesso, executar o comando:
-
-```
-docker ps
-```
-
-Os seguintes dados devem aparecer:
-
-```
-CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                    NAMES
-8e7815e5654e        uaifood_front_frontend   "docker-entrypoint.s…"   About an hour ago   Up About an hour    0.0.0.0:3000->3000/tcp   uaifood_front
+yarn start
 ```
 
 Para acessar a aplicação, acesse no navegador o endereço:
