@@ -43,7 +43,7 @@ const Search: React.FC<SearchProps> = ({ containerStyle = {} }) => {
         });
 
         await schema.validate(data, { abortEarly: false });
-        console.log(data);
+
         const { city } = data;
 
         history.push('/dashboard', { city });
