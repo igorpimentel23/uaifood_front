@@ -8,13 +8,13 @@ Estas instruções te darão uma cópia do projeto pronta para rodar na sua máq
 
 ### Pré-requisitos
 
-Para a instalação do projeto, é necessário que o Docker Compose esteja instalado na máquina.
+Para a instalação do projeto, é necessário que o Yarn esteja instalado na máquina.
 
-[Docker Compose](https://docs.docker.com/compose/install/)
+[Yarn](https://classic.yarnpkg.com/en/docs/install/)
 
 ### Instalando
 
-Depois de clonar e baixar o projeto, abra o terminal de comando na pasta do projeto, e execute:
+Depois de clonar e baixar o projeto, execute:
 
 ```
 yarn start
