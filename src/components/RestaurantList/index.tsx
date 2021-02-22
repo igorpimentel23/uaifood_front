@@ -36,7 +36,7 @@ const RestaurantList: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
     api
-      .get('/restaurants/all', {
+      .get('/restaurants', {
         params: {
           city_for_geo: location.state.city,
         },
