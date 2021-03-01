@@ -4,6 +4,7 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { useHistory, useLocation } from 'react-router-dom';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 import getValidationErrors from '../../util/getValidadtionErrors';
 
@@ -12,13 +13,14 @@ import Input from '../Input';
 import Button from '../Button';
 
 import ILocationProps from '../../dtos/ILocationDTO';
+import { IState } from '../../store';
+import { IFormState } from '../../store/modules/sidebarForm/types';
 
 interface SearchFormData {
   city: string;
 }
 
 interface SearchProps {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   containerStyle?: object;
 }
 
@@ -26,6 +28,9 @@ const Search: React.FC<SearchProps> = ({ containerStyle = {} }) => {
   const formRef = useRef<FormHandles>(null);
   const location = useLocation<ILocationProps>();
   const history = useHistory();
+  const { types, rating, cost } = useSelector<IState, IFormState>(
+    state => state.sidebarForm,
+  );
 
   const [inputVal, setInputVal] = useState('');
 
@@ -36,17 +41,17 @@ const Search: React.FC<SearchProps> = ({ containerStyle = {} }) => {
   const handleSubmit = useCallback(
     async (data: SearchFormData) => {
       try {
+        const pushData = { ...data, type: types, rating, cost };
+
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
           city: Yup.string().required('Endereço obrigatório'),
         });
 
-        await schema.validate(data, { abortEarly: false });
+        await schema.validate(pushData, { abortEarly: false });
 
-        const { city } = data;
-
-        history.push('/dashboard', { city });
+        history.push('/dashboard', pushData);
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -55,7 +60,7 @@ const Search: React.FC<SearchProps> = ({ containerStyle = {} }) => {
         }
       }
     },
-    [history],
+    [cost, history, rating, types],
   );
   return (
     <SearchContainer style={containerStyle} className="w-100">

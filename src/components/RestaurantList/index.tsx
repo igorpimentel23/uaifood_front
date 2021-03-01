@@ -35,17 +35,21 @@ const RestaurantList: React.FC = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    console.log(location.state.cost);
     api
       .get('/restaurants', {
         params: {
           city_for_geo: location.state.city,
+          rating: location.state.rating,
+          type: location.state.type,
+          cost: location.state.cost,
         },
       })
       .then(response => {
         setRestaurantList(response.data);
         setIsLoading(false);
       });
-  }, [location.state]);
+  }, [location]);
 
   return (
     <Container>
