@@ -26,6 +26,7 @@
     ],
     "rules": {
       "camelcase": "off",
+      "no-plusplus": "off",
       "@typescript-eslint/ban-types":"off",
       "@typescript-eslint/no-empty-function": "off",
       "react/prop-types": "off",
